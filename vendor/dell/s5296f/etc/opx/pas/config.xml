@@ -1,4 +1,4 @@
-<!-- Copyright (c) 2016 Dell Inc.
+<!-- Copyright (c) 2018 Dell EMC.
  Licensed under the Apache License, Version 2.0 (the "License"); you may
  not use this file except in compliance with the License. You may obtain
  a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -32,13 +32,7 @@
         <entity entity-type="fan-tray" poll-interval="2000"/>
         <entity entity-type="card" poll-interval="5000"/>
 
-        <card type="0xfe0f"/>
-
-        <extctrl-config>
-            <extctrl extctrl-name="SmartFusion Switch 1 temp control" >
-               <sensor name="NPU temp sensor" /> 
-            </extctrl>
-        </extctrl-config>
+        <card type="0xfe1a"/>
 
         <fan entity-type="psu" speed-control="no"/>
         <fan entity-type="fan-tray" speed-control="no"/>
@@ -52,7 +46,7 @@
             <led id="Alarm Major"/>
           </led-group>
           <led-group>
-            <led id="Stacking" default="on"/>
+            <led id="Stacking"/>
           </led-group>
         </led-groups>
 
@@ -78,11 +72,17 @@
                 <internal-phy mode="SGMII" autoneg="1" supported-speeds="10M/100M/1000M" />
             </phy-config-for-media-type>
 
+            <!--
+            <phy-config-for-media-type type="PLATFORM_MEDIA_TYPE_AR_SFPPLUS_10GBASE_T" type-enum-value="11">
+                <internal-phy mode="SFI" autoneg="1" supported-speeds="100M/1G/10G" />
+            </phy-config-for-media-type>
+            -->
 
         </phy-config>
 
         <port-config>
-            <port-summary count="34"/>
-            <port-config-info port-type= "PLATFORM_PORT_TYPE_PLUGGABLE" port-range="1-34"/>
-        </port-config>
+            <port-summary count="104"/>
+	    <port-config-info port-type= "PLATFORM_PORT_TYPE_PLUGGABLE" port-range="1-96"/>
+	    <port-config-info port-type= "PLATFORM_PORT_TYPE_PLUGGABLE" port-density="1" port-range="97-104"/>
+	</port-config>
 </pas>
