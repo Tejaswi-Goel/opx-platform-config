@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright (c) 2018 Dell EMC
+# Copyright (c) 2018 Dell EMC.
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License. You may obtain
@@ -20,11 +20,6 @@
 
 
 function platform_reset {
-
-
-    # Reset BCM52311 TCAM chip
-    /usr/bin/portiocfg.py --set --val 0xf1 --offset 0x111
-    /usr/bin/portiocfg.py --set --val 0xff --offset 0x111
 
     # reset the system
     /usr/bin/portiocfg.py --set --val 0xE --offset 0xCF9
@@ -49,4 +44,3 @@ case "$1" in
         platform_reset
         ;;
 esac
-
